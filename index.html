@@ -2,54 +2,365 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manuel Marangon - CV</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Consultoría Marangon</title>
+  <meta name="description" content="Consultoría Marangon: Soluciones profesionales en transformación digital, innovación y negocios.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --azul-oscuro: #0a1433;     /* Más oscuro */
+      --azul-electrico: #002266;   /* Azul eléctrico aún más oscuro */
+      --azul-titular: #0c1e3a;    /* Otro azul profundo */
+      --verde-fluo: #39ff14;
+      --negro: #13161a;
+      --gris-texto: #e4e9f1;
+      --gris-muted: #b6bbc5;
+      --amarillo: #ffe600;
+      --blanco: #fff;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--blanco);
+      color: var(--gris-texto);
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
+      min-height: 100vh;
     }
-    header {
-      background: #004d40;
-      color: #fff;
-      padding: 60px 20px 40px;
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--azul-electrico);
+      color: var(--blanco);
+      padding: 38px 18px 28px 18px;
+      border-bottom: 2px solid var(--azul-electrico);
+      gap: 38px;
+    }
+    .hero-text {
+      flex: 1 1 300px;
+      min-width: 210px;
+    }
+    .hero-text h1 {
+      margin: 0 0 14px 0;
+      font-size: 2.2rem;
+      color: var(--blanco);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+    .hero-text p {
+      font-size: 1.09rem;
+      margin: 0;
+      color: #e0e6fa;
+      max-width: 520px;
+      letter-spacing: 0.28px;
+    }
+    .hero-photo {
+      flex: 0 0 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-photo img {
+      width: 145px;
+      height: 145px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--blanco);
+      box-shadow: 0 2px 12px rgba(0,34,102,0.08);
+      background: #eee;
+      display: block;
+    }
+    @media (max-width: 700px) {
+      .hero-container {
+        flex-direction: column;
+        padding: 28px 6vw 18px 6vw;
+        gap: 16px;
+      }
+      .hero-photo img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    .container {
+      max-width: 800px;
+      margin: 32px auto 0 auto;
+      padding: 0 16px;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 26px;
+    }
+    .card {
+      background: var(--azul-titular);
+      border-radius: 11px;
+      border: 1.2px solid #1a2240;
+      padding: 18px 13px 13px 13px;
+      flex: 1 1 180px;
+      max-width: 205px;
+      min-width: 150px;
       text-align: center;
+      transition: border 0.13s, box-shadow 0.13s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 148px;
     }
-    header h1 {
+    .card:hover {
+      border: 1.5px solid var(--azul-electrico);
+      box-shadow: 0 2px 10px rgba(0,34,102,0.15);
+      background: #101c35;
+    }
+    .card .icon {
+      font-size: 1.28rem;
+      margin-bottom: 9px;
+      color: var(--verde-fluo);
+      background: none;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card h3 {
+      font-size: 1.01rem;
+      margin: 0 0 7px 0;
+      color: var(--verde-fluo);
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .card p {
+      font-size: 0.97rem;
       margin: 0;
-      font-size: 2.5rem;
+      color: var(--gris-muted);
+      line-height: 1.4;
     }
-    header h2 {
+    .benefits {
+      background: #e9eef7;
+      border-radius: 8px;
+      padding: 14px 14px 10px 22px;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      font-size: 0.98rem;
+      border-left: 4px solid var(--azul-electrico);
+      border-right: 2px solid var(--verde-fluo);
+      color: var(--azul-oscuro);
+    }
+    .benefits ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      columns: 2;
+    }
+    .benefits li {
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+      padding-left: 1.1em;
+      text-indent: -1.1em;
+      font-weight: 500;
+    }
+    .benefits li:before {
+      content: "■";
+      margin-right: 8px;
+      color: var(--verde-fluo);
+      font-size: 1.05em;
+      vertical-align: middle;
+    }
+    @media (max-width: 700px) {
+      .services {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .card {
+        max-width: 100%;
+        height: auto;
+      }
+      .benefits ul {
+        columns: 1;
+      }
+    }
+    .contact-section {
+      background: var(--azul-titular);
+      border-radius: 9px;
+      max-width: 410px;
+      margin: 0 auto 24px auto;
+      padding: 20px 16px 10px 16px;
+      border: 1.3px solid #1a2240;
+      color: var(--gris-texto);
+    }
+    .contact-section h2 {
+      margin-top: 0;
+      color: var(--blanco);
+      font-size: 1.09rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+    }
+    .form-group {
+      margin-bottom: 11px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+      font-size: 0.98rem;
+      color: var(--gris-texto);
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1.1px solid #1a2240;
+      border-radius: 6px;
+      padding: 7px 9px;
+      font-size: 0.97rem;
+      background: #121b2d;
+      color: var(--blanco);
+      transition: border 0.13s, background 0.13s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--azul-electrico);
+      background: #151e2e;
+    }
+    .contact-section button {
+      background: var(--azul-electrico);
+      color: var(--blanco);
+      border: none;
+      border-radius: 6px;
+      padding: 10px 32px;
+      font-size: 1.09rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.13s, color 0.14s;
       margin-top: 10px;
-      font-weight: 300;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 0.5px;
+      border-bottom: 3px solid var(--verde-fluo);
     }
-    nav {
-      position: sticky;
-      top: 0;
-      background: #00695c;
-      padding: 10px;
+    .contact-section button:hover {
+      background: var(--verde-fluo);
+      color: var(--azul-oscuro);
+      border-bottom: 3px solid var(--amarillo);
+    }
+    .footer {
+      background: #f5f6fa;
       text-align: center;
-      z-index: 1000;
+      padding: 14px 0 9px 0;
+      color: var(--gris-muted);
+      font-size: 1rem;
+      border-top: 1.5px solid #e3e7f1;
+      letter-spacing: 0.2px;
     }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
+    .footer a {
+      color: var(--azul-electrico);
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      font-weight: 500;
+      transition: color 0.13s;
     }
-    nav a:hover {
-      color: #ffd600;
+    .footer a:hover {
+      text-decoration: underline;
+      color: var(--verde-fluo);
     }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-      background: #fff;
-      margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px
+    /* Bio debajo de la foto */
+    .bio {
+      background: none;
+      color: var(--blanco);
+      text-align: center;
+      margin-top: 16px;
+      font-size: 1rem;
+      max-width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 700px) {
+      .bio {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-container">
+    <div class="hero-photo">
+      <img src="foto.jpg" alt="Manuel Marangon">
+    </div>
+    <div class="hero-text">
+      <h1>Consultoría Marangon</h1>
+      <p>Soluciones profesionales y modernas en transformación digital, innovación y estrategia de negocios.</p>
+      <div class="bio">
+        <strong>Manuel Marangon</strong><br>
+        Consultor en transformación digital, negocios y tecnología. Experiencia acompañando empresas de distintos rubros a crecer y adaptarse con soluciones innovadoras y prácticas.
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="services">
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Transformación Digital</h3>
+        <p>Modernizá tu empresa con tecnología y procesos digitales.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Estrategia & Negocios</h3>
+        <p>Crecé y abrí nuevos mercados con una estrategia clara.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛠️</div>
+        <h3>Gestión de Proyectos</h3>
+        <p>Implementación ágil y eficiente, con foco en resultados.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💡</div>
+        <h3>Innovación</h3>
+        <p>Soluciones tecnológicas para potenciar tu competitividad.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>Mentoría</h3>
+        <p>Desarrollo de líderes y equipos para impulsar el cambio.</p>
+      </div>
+    </div>
+
+    <div class="benefits">
+      <ul>
+        <li>+15 años transformando organizaciones</li>
+        <li>Soluciones a medida</li>
+        <li>Resultados medibles</li>
+        <li>Acompañamiento integral</li>
+      </ul>
+    </div>
+
+    <section class="contact-section" id="contacto">
+      <h2>¿Querés impulsar tu negocio?</h2>
+      <form action="mailto:manumarangon@gmail.com" method="POST" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="Nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="Mensaje" rows="3" required></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </div>
+
+  <footer class="footer">
+    © 2025 Consultoría Marangon &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/marangon/" target="_blank">LinkedIn</a>
+  </footer>
+</body>
+</html>
